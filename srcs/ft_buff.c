@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_buff.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/30 16:57:14 by antbarbi          #+#    #+#             */
-/*   Updated: 2020/02/13 19:53:09 by antbarbi         ###   ########.fr       */
+/*   Created: 2020/02/13 19:22:04 by antbarbi          #+#    #+#             */
+/*   Updated: 2020/02/13 19:36:46 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "../libft/libft.h"
+#include "printf.h"
 
-int		ft_printf(const char *format, ...)
+char	buff_flush()
 {
-	va_list	list;
-	char	buff[4096];
-
-	va_start(list, format);
-	
-	return (0);
+	return(NULL);
 }
+
+char	buff_fill(char *str, char *buff)
+{
+	while (*str)
+	{
+
+		str++;
+	}
+	return ();
+}
+
+char	
