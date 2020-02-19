@@ -6,25 +6,56 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 19:22:04 by antbarbi          #+#    #+#             */
-/*   Updated: 2020/02/13 19:36:46 by antbarbi         ###   ########.fr       */
+/*   Updated: 2020/02/19 19:49:56 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../includes/ft_printf.h"
 
-char	buff_flush()
+int		ft_write_full_buff(t_modulo *mod)
 {
-	return(NULL);
-}
-
-char	buff_fill(char *str, char *buff)
-{
-	while (*str)
+	if (mod->buff_index == BUFFER_SIZE)
 	{
-
-		str++;
+		if ((write(mod->fd, &mod->buff, mod->buff_index)) == -1)
+			return (-1);
+		mod->buff_index = 0;
 	}
-	return ();
+	return(1);
 }
 
-char	
+int		ft_buff_fill(t_modulo *mod, char c)
+{
+	if (ft_write_full_buff == -1)
+		return (-1);
+	mod->buff[mod->buff_index] = c;
+	mod->buff_index++;
+	return (0);
+}
+
+int		ft_fill_padding(t_modulo *mod, int n, char c)
+{
+	int		i;
+
+	i = 0;
+	while (i < n)
+	{
+		ft_buff_fill(mod, c);
+		i++;
+	}
+	return (0);
+}
+
+void	ft_fill_buff_s(t_modulo *mod, int n, char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i] && i < n)
+	{
+		if (mod->buff_index == BUFFER_SIZE)
+			ft_write_full_buff(mod);
+		mod->buff[mod->buff_index] = str[i];
+		mod->buff_index++;
+		i++;
+	} 
+}
