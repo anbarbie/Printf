@@ -6,23 +6,21 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 19:22:04 by antbarbi          #+#    #+#             */
-/*   Updated: 2020/02/26 15:03:08 by antbarbi         ###   ########.fr       */
+/*   Updated: 2020/02/26 14:39:17 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-/* FLUSH BUFFER WITH WRITE WHEN MAX BUFFER_SIZE IS REACHER */
-
 int		ft_write_full_buff(t_modulo *mod)
 {
 	if (mod->buff_index == BUFFER_SIZE)
 	{
-		if ((write(mod->fd, &mod->buff, mod->buff_index)) == -1)
+		if (((mod->rt += write(mod->fd, &mod->buff, mod->buff_index))) == -1)
 			return (-1);
 		mod->buff_index = 0;
 	}
-	return (1);
+	return (0);
 }
 
 int		ft_fill_buff_c(t_modulo *mod, char c)

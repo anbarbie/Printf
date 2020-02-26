@@ -6,7 +6,7 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 16:58:02 by antbarbi          #+#    #+#             */
-/*   Updated: 2020/02/19 19:26:02 by antbarbi         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:12:31 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct		s_modulo
 {
 	char		buff[BUFFER_SIZE];
 	int			fd;
+	int			rt;
 	size_t 		buff_index;
 	t_flags		flags;
 	t_width		width;
@@ -62,8 +63,17 @@ typedef struct		s_modulo
 }					t_modulo;
 
 void	ft_init_struct(t_modulo *mod);
+void	ft_fill_buff_s(t_modulo *mod, int n, char *str);
 int		ft_printf(const char *format, ...);
 int		ft_read_conv(char *str, t_modulo *mod, va_list args);
+int		ft_write_full_buff(t_modulo *mod);
+int		ft_fill_buff_c(t_modulo *mod, char c);
+int		ft_fill_padding(t_modulo *mod, int n, char c);
+int		ft_c_conv(t_modulo *mod, int c);
+int		ft_s_conv(t_modulo *mod, char *str);
+int		ft_d_conv(t_modulo *mod, int c);
+int		ft_x_conv(t_modulo *mod, int c, int hex);
+int		ft_percent_conv(t_modulo *mod);
 char	*ft_parse_flags(char *str, t_modulo *mod);
 char	*ft_parse_width(char *str, t_modulo *mod, va_list args);
 char	*ft_parse_length(char *str, t_modulo *mod);

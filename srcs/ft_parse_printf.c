@@ -6,7 +6,7 @@
 /*   By: antbarbi <antbarbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 14:36:17 by antbarbi          #+#    #+#             */
-/*   Updated: 2020/02/19 19:28:55 by antbarbi         ###   ########.fr       */
+/*   Updated: 2020/02/26 14:45:13 by antbarbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*ft_parse_length(char *str, t_modulo *mod)
 			mod->length.hh = 1;
 			str++;
 		}
-		else 
+		else
 			mod->length.h = 1;
 		str++;
 	}
